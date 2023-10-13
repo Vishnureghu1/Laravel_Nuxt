@@ -2,6 +2,7 @@
   <v-row justify="center" align="center">
     <v-col cols="12" sm="8" md="6">
       <v-card class="logo py-4 d-flex justify-center">
+        <h1>{{ name }}</h1>
         <NuxtLogo />
         <VuetifyLogo />
       </v-card>
@@ -77,7 +78,18 @@
 </template>
 
 <script>
+// import axios from 'axios';
+
 export default {
-  name: 'IndexPage'
+  name: 'IndexPage',
+  data() {
+    return {
+      name: 'Vishnu'
+    }
+  },
+  async created () {
+    let response = await this.$axios.get('/hello');
+    this.name = response.data.name
+  }
 }
 </script>
