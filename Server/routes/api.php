@@ -17,3 +17,12 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+Route::get('/home', 'FrontEndController@homePage');
+Route::get('fetch-users', 'FrontEndController@getUsers');
+Route::post('add-users', 'FrontEndController@addUsers');
+Route::delete('remove-user', 'FrontEndController@removeUser');
+Route::put('edit-user', 'FrontEndController@editUser');
+
+
