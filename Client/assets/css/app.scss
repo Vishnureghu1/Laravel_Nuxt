@@ -1,0 +1,257 @@
+
+@import "./_variables.scss";
+@import './responsive';
+@import "./main-layout";
+@import './navigation';
+@import './mini-sidebar';
+@import './table';
+
+// body{
+//     font-family: Inter var, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+//     @apply bg-[rgb(var(--body-bg))];
+// }
+.page-enter-active,
+.page-leave-active {
+    @apply transition-opacity transition duration-300;
+}
+.page-enter,
+.page-leave-active {
+    @apply opacity-0 transform -translate-x-4;
+}
+.slide-left-enter-active,
+.slide-left-leave-active {
+    @apply transition-opacity transition duration-200;
+}
+
+.slide-left-enter,
+.slide-left-leave-to {
+    @apply opacity-0 transform -translate-x-4;
+}
+
+.horizontal-layout{
+    .main-panel{
+        margin-left: 0px;
+        width: 100%;
+
+        .wc-navbar{
+            left: 0px;
+        }
+    }
+    .c-breadcrumb{
+        margin: -23px 0px 25px 0px!important;
+        @media (max-width:1300px){
+            margin: -23px 0px 25px 0px !important;
+        }
+    }
+}
+.small-more {
+    @apply hidden;
+}
+.r-sidebar .side-navmenu li a {
+    @apply text-sm font-medium text-gray-700 transition-all duration-500 flex items-center;
+
+    .sb-icon {
+      @apply float-left mr-1 text-center text-gray-800 relative min-w-[30px] h-[30px] leading-[30px] bg-gray-100;
+    }
+
+    p {
+      @apply m-0 block h-auto whitespace-nowrap font-medium text-[15px] text-gray-300;
+    }
+}
+
+.r-sidebar .side-navmenu li a .sb-icon {
+    @apply bg-[#10364d] text-[#dcdfe6];
+}
+
+.dashboard-layout {
+    .lg-logo {
+        @apply md: flex;
+    }
+
+    .sm-logo {
+        @apply <md: flex md:hidden;
+    }
+
+    &.small-sidebar {
+        .r-sidebar {
+            @apply w-[80px];
+
+            .logo-head {
+                img {
+                    @apply ml-auto mr-auto;
+                }
+
+                .logo-text {
+                    @apply hidden;
+                }
+            }
+
+            .side-navmenu li a p {
+                @apply hidden;
+            }
+
+            .navgroup-head {
+                @apply hidden;
+            }
+
+            .sub-menu {
+                li {
+                    @apply hidden;
+                }
+            }
+
+            .small-more {
+                @apply flex items-center justify-center text-white;
+            }
+
+            .lg-logo {
+                @apply hidden;
+            }
+
+            .sm-logo {
+                @apply flex;
+            }
+        }
+
+        .main-panel {
+            @apply ml-[80px];
+            width: calc(100% - 80px);
+        }
+
+        .wc-navbar {
+            @apply left-[80px];
+        }
+    }
+}
+
+.grow {
+    flex-grow: 1!important;
+}
+
+body .el-menu--horizontal.horizontal-menu>.el-submenu .el-submenu__title {
+    @apply whitespace-nowrap break-normal cursor-pointer px-3 py-2 rounded-md text-sm font-medium text-white flex items-center hover: bg-[#030f16] h-auto border-0 bg-transparent;
+}
+
+.el-menu--horizontal>.el-submenu .el-submenu__title {
+    @apply flex items-center;
+}
+
+body .el-menu--horizontal>.el-menu-item.is-active {
+    @apply border-b-0 border-b-transparent;
+}
+
+.r-sidebar {
+    @apply bg-[#082637];
+}
+
+.profile-exact-active {
+    @apply bg-primary text-white !important
+}
+.form-group {
+    position: relative;
+    margin-bottom: 1rem;
+}
+
+.navgroup-head {
+    @apply text-white/60;
+}
+
+.el-notification__group .el-notification__content {
+   @apply mt-0 text-left;
+}
+
+.main-panel {
+    label:not(.no-default-line-height) {
+        @apply text-gray-600 text-sm;
+    }
+    .left-position-label {
+        label:not(.no-default-line-height) {
+            @apply leading-[40px];
+        }
+    }
+}
+.el-form-item{
+    @apply mb-[10px];
+    .el-form-item__label{
+        @apply pb-[5px];
+    }
+    .el-form-item__content{
+        @apply leading-5;
+    }
+}
+
+.el-radio__input.is-checked .el-radio__inner{
+    @apply border-primary bg-primary;
+}
+.el-radio__input.is-checked+.el-radio__label{
+    @apply text-primary;
+}
+
+.view {
+    :not(.not-view){
+        &.el-form-item{
+            @apply mb-[10px];
+            .el-input input,
+            .el-form-item__content :not(.no-view) textarea{
+                @apply border-x-0 border-t-0 bg-white pl-0 rounded-none text-black pointer-events-none;
+                &.el-textarea__inner{
+                    @apply h-auto resize-none;
+                }
+            }
+            .el-form-item__content .el-select {
+            .el-select__tags input,
+            .el-input input{
+                    @apply bg-white border-x-0 border-t-0;
+                } 
+                .el-select__tags .el-tag.el-tag--info{
+                    @apply btn-create min-w-0 shadow-none text-[12px];
+                }
+            }
+            .el-input__prefix,.el-input__suffix{
+                @apply hidden;
+            }
+            .el-form-item__label{
+                @apply pb-0;
+                &:before{
+                    @apply content-[none];
+                }
+            }
+        }
+       
+    }
+    .readonly-in-view{
+        @apply border-x-0 border-t-0 bg-white pl-0 rounded-none text-black h-[30px] pointer-events-none;
+    }
+    .el-input-group__prepend{
+        @apply bg-transparent border-x-0 border-t-0 py-0 pl-0 pr-1;
+    }
+}
+
+
+body .el-drawer__header {
+   @apply border border-opacity-20 mb-0 px-4 py-2 text-black font-medium;
+}
+
+.el-dialog__header{
+    @apply border-b;
+}
+
+.el-dialog__body{
+    @apply py-[10px];
+}
+.w-fit{
+    width: fit-content;
+}
+.custom-scrollbar{
+    .ps__rail-y{
+        @apply opacity-100;
+    }
+}
+
+.ticket-tabs .el-tabs__nav-scroll {
+    @apply flex justify-between;
+}
+
+.el-loading-spinner{
+    @apply flex justify-center;
+}
